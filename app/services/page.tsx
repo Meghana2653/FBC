@@ -1,0 +1,7 @@
+import type { Metadata } from "next";
+import { services } from "@/lib/data";
+import { SectionHeading } from "@/components/SectionHeading";
+
+export const metadata: Metadata = { title: "Services", description: "Modular technology, branding and digital growth services from FBC IT." };
+
+export default function ServicesPage() { return <><section className="page-hero"><div className="container"><span className="eyebrow">Services · 01—08</span><h1>Capabilities that connect to the work your business needs next.</h1><p>Core services are modular. Start with one requirement or combine multiple services around a clear business outcome.</p></div></section><section className="section"><div className="container">{services.map((service) => {const Icon=service.icon;return <article className="service-detail" id={service.slug} key={service.slug}><div><Icon className="service-icon" size={30}/><span className="eyebrow" style={{marginTop:25, marginBottom:0}}>{service.number} · Service</span><h2>{service.title}</h2><p>{service.detail}</p></div><div><SectionHeading eyebrow="Scope" title="What this can include"/><div className="capability-list">{service.capabilities.map((item)=><div className="capability" key={item}>{item}</div>)}</div></div></article>})}<p className="quote-line">Technology choices are selected according to project requirements, budget, scalability and maintenance needs.</p></div></section></> }
